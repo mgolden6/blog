@@ -2,8 +2,13 @@
 
 <h1>Compose</h1>
 <form action="/compose" method="POST">
-    <input name="postTitle" type="text" autofocus>
-    <button type="submit">Publish</button>
+    <div class="form-group">
+        <label for="IDinputTitle">Title</label>
+        <input class="form-control" id="IDinputTitle" name="NAMEinputTitle" type="text" autofocus>
+        <label for="IDinputBody">Post</label>
+        <textarea class="form-control" id="IDinputBody" name="NAMEinputBody" type="text" rows="3"></textarea>
+    </div>
+    <button class="btn btn-primary" type="submit">Publish</button>
 </form>
 
 <%-include("partials/footer"); -%>
