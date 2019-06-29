@@ -36,6 +36,16 @@ app.get("/compose", function (req, res) {
   res.render("compose");
 });
 
+app.get("/posts/:postTitle", function (req, res) {
+  posts.forEach(function (post) {
+    if (req.params.postTitle === post.title) {
+      console.log("Match found!");
+    } else {
+      console.log("not found!");
+    }
+  });
+});
+
 app.post("/compose", function (req, res) {
   const post = {
     title: req.body.NAMEinputTitle,
@@ -44,8 +54,6 @@ app.post("/compose", function (req, res) {
   posts.push(post);
   res.redirect("/");
 });
-
-
 
 app.listen(3000, function () {
   console.log("Server started on port 3000");
