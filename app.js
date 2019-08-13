@@ -101,8 +101,11 @@ app.post("/compose", function (req, res) {
     title: req.body.NAMEinputTitle,
     content: req.body.NAMEinputBody
   });
-  newPost.save();
-  res.redirect("/");
+  newPost.save(function (err) {
+    if (!err){
+      res.redirect("/");
+    }
+  });
 });
 
 //setup the app to listen and test
